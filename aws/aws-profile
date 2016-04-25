@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 # Usage: Put the following in your bashrc or zshrc:
-# $ eval $(aws-profile --env)
+# $ eval $(/absolute/path/to/aws-profile --env)
 #
 # Switch aws profiles with:
 # $ awsp <profile>
@@ -80,7 +80,7 @@ case ARGV.first
 when '--env'
   puts <<-EOF
 awsp () {
-        $(aws-profile $1)
+        $(#{$0} $1)
 }
   EOF
   exit 0
